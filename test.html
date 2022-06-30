@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NUMBER</title>
+    </head>
+    <body>
+        
+        <input type="number" id="input" placeholder="Add a number">
+        <button type="button" onclick="addNumber()">Add</button>
+        <button type="button" onclick="ShowSum()">Display Sum</button>
+        <div id='numberList'></div>
+        <div id="ShowSum"></div>
+        
+    <script>
+        const values = [];
+        function addNumber() {
+        var input = document.getElementById('input'); 
+        values.push(input.value); 
+        var num = "";   
+        for (var y = 0; y < values.length; y++){
+        num += values[y] + "<br/>";
+        }
+        document.getElementById("numberList").innerHTML = num;   
+        input.value = "";                            
+        }
+        function ShowSum(){
+            const arrays = values; 
+            let sum ="";
+            document.getElementById("ShowSum").innerHTML = arrays.reduce(getSum, 0);
+            function getSum(total, num) {
+            return total + Math.round(num);
+            }
+        }
+    </script>      
+    </body>
+</html> 
